@@ -1,21 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import {
-  Button,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-
+import { Button, StyleSheet, Text, View } from "react-native";
+import { Input } from "react-native-elements";
 export default function App() {
   const [name, setName] = useState("");
   console.log(name);
   return (
     <View style={styles.container}>
       <Text>Hello world!</Text>
-      <TextInput placeholder="type stuff" />
+      <Input label="Name" onChangeText={setName} value={name} />
       {/* <TouchableOpacity>
         <Text>Button</Text>
       </TouchableOpacity> */}
