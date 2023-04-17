@@ -4,15 +4,16 @@ import { Button, StyleSheet, Text, View } from "react-native";
 import { Input } from "react-native-elements";
 export default function App() {
   const [name, setName] = useState("");
-  console.log(name);
+  const [age, setAge] = useState("");
   return (
     <View style={styles.container}>
-      <Text>Hello world!</Text>
+      <Text style={styles.h1}>Practice App</Text>
       <Input label="Name" onChangeText={setName} value={name} />
+      <Input label="Age" onChangeText={setAge} value={age} />
       {/* <TouchableOpacity>
         <Text>Button</Text>
       </TouchableOpacity> */}
-      <Button title="button" />
+      <Button title="button" onPress={() => console.log(name, age)} />
       <StatusBar style="auto" />
     </View>
   );
@@ -24,5 +25,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  h1: {
+    fontSize: 30,
+    fontWeight: "bold",
   },
 });
