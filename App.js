@@ -14,7 +14,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.h1}>Practice App</Text>
-      <Input label="Title" onChangeText={setTitle} value={title} />
+      <Input label="Goal" onChangeText={setTitle} value={title} />
       {title === "" ? (
         <Button title="button" disabled />
       ) : (
