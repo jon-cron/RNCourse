@@ -11,8 +11,8 @@ const GoalList = ({ goals }) => {
   return (
     <View>
       <FlatList
-        // horizontal
-        // showsHorizontalScrollIndicator={false}
+        horizontal
+        showsHorizontalScrollIndicator={false}
         data={goals}
         keyExtractor={goals.index}
         renderItem={({ item }) => {
