@@ -9,7 +9,7 @@ import {
 
 const GoalList = ({ goals }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -18,7 +18,7 @@ const GoalList = ({ goals }) => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity style={styles.goal}>
-              <Text>{item}</Text>
+              <Text style={styles.goalText}>{item}</Text>
             </TouchableOpacity>
           );
         }}
@@ -39,13 +39,19 @@ const GoalList = ({ goals }) => {
 
 const styles = StyleSheet.create({
   goal: {
-    backgroundColor: "red",
+    backgroundColor: "#333",
     margin: 5,
-    width: 250,
-    height: 50,
-    textAlign: "center",
+    padding: 10,
+    alignItems: "center",
     borderRadius: 10,
-    paddingVertical: 3,
+  },
+  goalText: {
+    textAlign: "center",
+    color: "white",
+  },
+  container: {
+    height: 50,
+    marginTop: 20,
   },
 });
 
