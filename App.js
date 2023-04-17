@@ -7,7 +7,7 @@ export default function App() {
   const [title, setTitle] = useState("");
   const [goals, setGoals] = useState([]);
   const handlePress = () => {
-    setGoals([...goals, title]);
+    setGoals((currentGoals) => [...currentGoals, title]);
     setTitle("");
     console.log(goals);
   };
@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+    marginVertical: 35,
+    // justifyContent: "center",
   },
   h1: {
     fontSize: 30,
