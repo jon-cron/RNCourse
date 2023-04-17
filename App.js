@@ -2,18 +2,25 @@ import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { Input } from "react-native-elements";
+import GoalList from "./src/components/GoalList.jsx";
 export default function App() {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
+  const [title, setTitle] = useState("");
+  const [goals, setGoals] = useState([]);
+  const handlePress = () => {
+    setGoals([...goals, title]);
+    setTitle("");
+    console.log(goals);
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.h1}>Practice App</Text>
-      <Input label="Name" onChangeText={setName} value={name} />
-      <Input label="Age" onChangeText={setAge} value={age} />
-      {/* <TouchableOpacity>
-        <Text>Button</Text>
-      </TouchableOpacity> */}
-      <Button title="button" onPress={() => console.log(name, age)} />
+      <Input label="Title" onChangeText={setTitle} value={title} />
+      {title === "" ? (
+        <Button title="button" disabled />
+      ) : (
+        <Button title="button" onPress={handlePress} />
+      )}
+      <GoalList goals={goals} />
       <StatusBar style="auto" />
     </View>
   );
