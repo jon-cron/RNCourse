@@ -14,11 +14,13 @@ const GoalList = ({ goals }) => {
         horizontal
         showsHorizontalScrollIndicator={false}
         data={goals}
-        keyExtractor={goals.index}
-        renderItem={({ item }) => {
+        keyExtractor={(item, index) => {
+          return item.id;
+        }}
+        renderItem={(itemData) => {
           return (
             <TouchableOpacity style={styles.goal}>
-              <Text style={styles.goalText}>{item}</Text>
+              <Text style={styles.goalText}>{itemData.item.text}</Text>
             </TouchableOpacity>
           );
         }}

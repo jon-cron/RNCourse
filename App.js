@@ -7,7 +7,10 @@ export default function App() {
   const [title, setTitle] = useState("");
   const [goals, setGoals] = useState([]);
   const handlePress = () => {
-    setGoals((currentGoals) => [...currentGoals, title]);
+    setGoals((currentGoals) => [
+      ...currentGoals,
+      { text: title, id: Math.random().toString() },
+    ]);
     setTitle("");
     console.log(goals);
   };
