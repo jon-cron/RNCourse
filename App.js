@@ -10,7 +10,7 @@ import {
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello world</Text>
+      <Text>Hello world!</Text>
       <TextInput placeholder="type stuff" />
       <TouchableOpacity>
         <Text>Button</Text>
