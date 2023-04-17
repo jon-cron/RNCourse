@@ -1,5 +1,7 @@
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import {
+  Button,
   StyleSheet,
   Text,
   TextInput,
@@ -8,13 +10,16 @@ import {
 } from "react-native";
 
 export default function App() {
+  const [name, setName] = useState("");
+  console.log(name);
   return (
     <View style={styles.container}>
       <Text>Hello world!</Text>
       <TextInput placeholder="type stuff" />
-      <TouchableOpacity>
+      {/* <TouchableOpacity>
         <Text>Button</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+      <Button title="button" />
       <StatusBar style="auto" />
     </View>
   );
