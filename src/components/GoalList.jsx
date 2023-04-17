@@ -9,19 +9,21 @@ import {
 
 const GoalList = ({ goals }) => {
   return (
-    <FlatList
-      horizontal
-      // showsHorizontalScrollIndicator={false}
-      data={goals}
-      keyExtractor={goals.index}
-      renderItem={({ item }) => {
-        return (
-          <TouchableOpacity style={styles.goal}>
-            <Text>{item}</Text>
-          </TouchableOpacity>
-        );
-      }}
-    />
+    <View>
+      <FlatList
+        // horizontal
+        // showsHorizontalScrollIndicator={false}
+        data={goals}
+        keyExtractor={goals.index}
+        renderItem={({ item }) => {
+          return (
+            <TouchableOpacity style={styles.goal}>
+              <Text>{item}</Text>
+            </TouchableOpacity>
+          );
+        }}
+      />
+    </View>
   );
   // return (
   //   <View>
