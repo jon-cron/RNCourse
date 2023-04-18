@@ -14,6 +14,7 @@ export default function App() {
     setTitle("");
     console.log(goals);
   };
+  // NOTE I will get some coding done later
   return (
     <View style={styles.container}>
       <Text style={styles.h1}>Practice App</Text>
