@@ -21,32 +21,39 @@ export default function App() {
   };
   // NOTE I will get some coding done later
   return (
-    <View style={styles.container}>
-      <Text style={styles.h1}>Practice App</Text>
-      {modalVisible ? (
-        <Button title="Cancel" color={"red"} onPress={() => toggleModal()} />
-      ) : (
-        <Button
-          title="Add Goal"
-          color={"green"}
-          onPress={() => toggleModal()}
-        />
-      )}
-      <GoalInput addGoal={handlePress} modalVisible={modalVisible} />
-      <GoalList goals={goals} deleteItem={deleteItem} />
-      <StatusBar style="auto" />
+    <View style={styles.background}>
+      <View style={styles.container}>
+        <Text style={styles.h1}>Practice App</Text>
+        {modalVisible ? (
+          <Button title="Cancel" color={"red"} onPress={() => toggleModal()} />
+        ) : (
+          <Button
+            title="Add Goal"
+            color={"green"}
+            onPress={() => toggleModal()}
+          />
+        )}
+        <GoalInput addGoal={handlePress} modalVisible={modalVisible} />
+        <GoalList goals={goals} deleteItem={deleteItem} />
+        <StatusBar style="auto" />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+    backgroundColor: "purple",
+    height: "100%",
+  },
   container: {
     marginTop: 50,
-    backgroundColor: "#fff",
     alignItems: "center",
   },
   h1: {
     fontSize: 30,
     fontWeight: "bold",
+    color: "white",
+    marginBottom: 20,
   },
 });
