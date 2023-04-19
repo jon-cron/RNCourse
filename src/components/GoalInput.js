@@ -18,7 +18,12 @@ const GoalInput = ({ addGoal, modalVisible }) => {
   return (
     <Modal visible={modalVisible} animationType="slide">
       <View style={styles.container}>
-        <Input label="Goal" onChangeText={setTitle} value={title} />
+        <Input
+          label="Goal"
+          onChangeText={setTitle}
+          value={title}
+          style={styles.inputStyle}
+        />
         {title === "" ? (
           <Button title="button" disabled />
         ) : (
@@ -31,13 +36,16 @@ const GoalInput = ({ addGoal, modalVisible }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 80,
-    display: "flex",
+    flex: 1,
+    width: 300,
+    flexDirection: "row",
+    alignContent: "center",
     backgroundColor: "#fff",
     alignItems: "center",
     marginVertical: 35,
     // justifyContent: "center",
   },
+  inputStyle: {},
 });
 
 export default GoalInput;

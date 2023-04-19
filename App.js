@@ -17,6 +17,7 @@ export default function App() {
       ...currentGoals,
       { text: title, id: Math.random().toString() },
     ]);
+    toggleModal();
   };
   // NOTE I will get some coding done later
   return (
