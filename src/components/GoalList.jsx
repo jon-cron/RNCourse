@@ -16,8 +16,8 @@ const GoalList = ({ goals, deleteItem }) => {
             <View style={styles.press}>
               <Pressable
                 android_ripple={{ color: "#fff" }}
-                // NOTE we are destructuring pressed from pressed data.
-                style={({ pressed }) => {}}
+                style={({ pressed }) => pressed && styles.pressedItem}
+                // NOTE we are destructuring pressed from pressedData which comes will pressables to conditionally render styling
                 onPress={() => deleteItem(itemData.item.id)}
               >
                 <Text style={styles.goalText}>{itemData.item.text}</Text>
@@ -41,13 +41,6 @@ const GoalList = ({ goals, deleteItem }) => {
 };
 
 const styles = StyleSheet.create({
-  goal: {
-    backgroundColor: "#333",
-    margin: 5,
-    padding: 10,
-    alignItems: "center",
-    borderRadius: 10,
-  },
   goalText: {
     textAlign: "center",
     color: "white",
@@ -58,7 +51,15 @@ const styles = StyleSheet.create({
   },
   press: {
     width: 100,
-    // padding: 5,
+    padding: 5,
+    backgroundColor: "#333",
+    margin: 5,
+    padding: 10,
+    alignItems: "center",
+    borderRadius: 10,
+  },
+  pressedItem: {
+    opacity: 0.5,
   },
 });
 
