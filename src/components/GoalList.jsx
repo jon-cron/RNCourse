@@ -2,10 +2,6 @@ import React from "react";
 import { Text, View, StyleSheet, FlatList, Pressable } from "react-native";
 
 const GoalList = ({ goals, deleteItem }) => {
-  const itemToDelete = (id) => {
-    deleteItem(id);
-  };
-
   return (
     <View style={styles.container}>
       <FlatList
@@ -19,7 +15,7 @@ const GoalList = ({ goals, deleteItem }) => {
           return (
             <Pressable
               style={styles.goal}
-              onPress={() => itemToDelete(itemData.item.id)}
+              onPress={() => deleteItem(itemData.item.id)}
             >
               <Text style={styles.goalText}>{itemData.item.text}</Text>
             </Pressable>
