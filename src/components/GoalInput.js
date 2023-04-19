@@ -37,12 +37,11 @@ const GoalInput = ({ addGoal, modalVisible }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: 300,
+    width: "80%",
     flexDirection: "row",
     alignContent: "center",
     backgroundColor: "#fff",
     alignItems: "center",
-    marginVertical: 35,
     // justifyContent: "center",
   },
   inputStyle: {},
