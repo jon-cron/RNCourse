@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  FlatList,
-  Pressable,
-  Modal,
-} from "react-native";
+import { Text, View, StyleSheet, FlatList, Pressable } from "react-native";
 
 const GoalList = ({ goals, deleteItem }) => {
   return (
@@ -20,33 +13,21 @@ const GoalList = ({ goals, deleteItem }) => {
         }}
         renderItem={(itemData) => {
           return (
-            <Modal>
-              <View style={styles.press}>
-                <Pressable
-                  android_ripple={{ color: "#fff" }}
-                  style={({ pressed }) => pressed && styles.pressedItem}
-                  // NOTE we are destructuring pressed from pressedData which comes will pressables to conditionally render styling
-                  onPress={() => deleteItem(itemData.item.id)}
-                >
-                  <Text style={styles.goalText}>{itemData.item.text}</Text>
-                </Pressable>
-              </View>
-            </Modal>
+            <View style={styles.press}>
+              <Pressable
+                android_ripple={{ color: "#fff" }}
+                style={({ pressed }) => pressed && styles.pressedItem}
+                // NOTE we are destructuring pressed from pressedData which comes will pressables to conditionally render styling
+                onPress={() => deleteItem(itemData.item.id)}
+              >
+                <Text style={styles.goalText}>{itemData.item.text}</Text>
+              </Pressable>
+            </View>
           );
         }}
       />
     </View>
   );
-  // return (
-  //   <View>
-  //     {goals.length > 0 &&
-  //       goals.map((g) => (
-  //         <Text style={styles.goal} key={g.index}>
-  //           {g}
-  //         </Text>
-  //       ))}
-  //   </View>
-  // );
 };
 
 const styles = StyleSheet.create({

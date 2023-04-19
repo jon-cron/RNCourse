@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import GoalList from "./src/components/GoalList.jsx";
-import GoalInput from "./src/components/GoalInput.js";
+import GoalInput from "./src/components/GoalInput.jsx";
 export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
   const [goals, setGoals] = useState([]);
@@ -41,11 +41,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    marginTop: 50,
     backgroundColor: "#fff",
     alignItems: "center",
-    marginVertical: 35,
-    // justifyContent: "center",
   },
   h1: {
     fontSize: 30,
