@@ -1,32 +1,37 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
-import { Input } from "react-native-elements";
 import GoalList from "./src/components/GoalList.jsx";
+import GoalInput from "./src/components/GoalInput.js";
 export default function App() {
-  const [title, setTitle] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
   const [goals, setGoals] = useState([]);
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
+  };
   const deleteItem = (id) => {
     setGoals((currentGoals) => currentGoals.filter((g) => g.id != id));
   };
-  const handlePress = () => {
+  const handlePress = (title) => {
     setGoals((currentGoals) => [
       ...currentGoals,
       { text: title, id: Math.random().toString() },
     ]);
-    setTitle("");
-    console.log(goals);
   };
   // NOTE I will get some coding done later
   return (
     <View style={styles.container}>
       <Text style={styles.h1}>Practice App</Text>
-      <Input label="Goal" onChangeText={setTitle} value={title} />
-      {title === "" ? (
-        <Button title="button" disabled />
+      {modalVisible ? (
+        <Button title="Cancel" color={"red"} onPress={() => toggleModal()} />
       ) : (
-        <Button title="button" onPress={handlePress} />
+        <Button
+          title="Add Goal"
+          color={"green"}
+          onPress={() => toggleModal()}
+        />
       )}
+      <GoalInput addGoal={handlePress} modalVisible={modalVisible} />
       <GoalList goals={goals} deleteItem={deleteItem} />
       <StatusBar style="auto" />
     </View>
