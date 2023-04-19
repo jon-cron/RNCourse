@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Button,
-  TouchableOpacity,
-  Modal,
-} from "react-native";
+import { Text, View, StyleSheet, Button, Image, Modal } from "react-native";
 import { Input } from "react-native-elements";
 
 const GoalInput = ({ addGoal, modalVisible }) => {
@@ -18,6 +11,7 @@ const GoalInput = ({ addGoal, modalVisible }) => {
   return (
     <Modal visible={modalVisible} animationType="slide">
       <View style={styles.container}>
+        <Image blurRadius={1} source={require("../../assets/favicon.png")} />
         <Input
           label="Goal"
           onChangeText={setTitle}
@@ -37,7 +31,7 @@ const GoalInput = ({ addGoal, modalVisible }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: "80%",
+    width: "70%",
     flexDirection: "row",
     alignContent: "center",
     backgroundColor: "#fff",
