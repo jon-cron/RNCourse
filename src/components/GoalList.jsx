@@ -1,13 +1,11 @@
 import React from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
+import { Text, View, StyleSheet, FlatList, Pressable } from "react-native";
 
-const GoalList = ({ goals }) => {
+const GoalList = ({ goals, deleteItem }) => {
+  const itemToDelete = (id) => {
+    deleteItem(id);
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -19,9 +17,12 @@ const GoalList = ({ goals }) => {
         }}
         renderItem={(itemData) => {
           return (
-            <TouchableOpacity style={styles.goal}>
+            <Pressable
+              style={styles.goal}
+              onPress={() => itemToDelete(itemData.item.id)}
+            >
               <Text style={styles.goalText}>{itemData.item.text}</Text>
-            </TouchableOpacity>
+            </Pressable>
           );
         }}
       />

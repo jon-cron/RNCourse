@@ -6,6 +6,9 @@ import GoalList from "./src/components/GoalList.jsx";
 export default function App() {
   const [title, setTitle] = useState("");
   const [goals, setGoals] = useState([]);
+  const deleteItem = (id) => {
+    setGoals((currentGoals) => currentGoals.filter((g) => g.id != id));
+  };
   const handlePress = () => {
     setGoals((currentGoals) => [
       ...currentGoals,
@@ -24,7 +27,7 @@ export default function App() {
       ) : (
         <Button title="button" onPress={handlePress} />
       )}
-      <GoalList goals={goals} />
+      <GoalList goals={goals} deleteItem={deleteItem} />
       <StatusBar style="auto" />
     </View>
   );
