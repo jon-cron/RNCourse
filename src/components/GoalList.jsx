@@ -13,12 +13,16 @@ const GoalList = ({ goals, deleteItem }) => {
         }}
         renderItem={(itemData) => {
           return (
-            <Pressable
-              style={styles.goal}
-              onPress={() => deleteItem(itemData.item.id)}
-            >
-              <Text style={styles.goalText}>{itemData.item.text}</Text>
-            </Pressable>
+            <View style={styles.press}>
+              <Pressable
+                android_ripple={{ color: "#fff" }}
+                // NOTE we are destructuring pressed from pressed data.
+                style={({ pressed }) => {}}
+                onPress={() => deleteItem(itemData.item.id)}
+              >
+                <Text style={styles.goalText}>{itemData.item.text}</Text>
+              </Pressable>
+            </View>
           );
         }}
       />
@@ -51,6 +55,10 @@ const styles = StyleSheet.create({
   container: {
     height: 50,
     marginTop: 20,
+  },
+  press: {
+    width: 100,
+    // padding: 5,
   },
 });
 
